@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Training</title>
+
+	<!-- Set the favicon logo -->
+	<link rel="icon" href="./Logo.png" type="image/x-icon" />
+
+	<!-- Unpack the main JSpsych module -->
+	<script src="https://unpkg.com/jspsych@7.3.3"></script>
+
+	<!-- JSpsych dependency to fullscreen -->
+	<script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.1.2"></script>
+
+	<!-- JSpsych dependency for call-function -->
+	<script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.2"></script>
+
+	<!-- JSpsych dependency for HTML button response -->
+	<script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.2"></script>
+
+	<!-- JSpsych dependency for preloading -->
+	<script src="https://unpkg.com/@jspsych/plugin-preload@1.1.2"></script>
+
+	<!-- JSpsych dependency for styling -->
+	<link rel="stylesheet" href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" />
+
+	<!-- Dynamic border + black background -->
+	<style>
+		body {
+			background-color: black;
+		}
+
+		[id^=Resp]:hover {
+			border: 2px solid black;
+			border-radius: 25px;
+		}
+	</style>
+
+	<!-- Get participant IDs passed in from URL -->
+	<script src="./Assets/GetPpantIds.js"></script>
+
+	<!-- Get DateTime_Start and ClientTimeZone (and add to TaskIO) -->
+	<script src="./Assets/SetDateTime.js"></script>
+
+	<!-- Exclude if using Edge -->
+	<script src="./Assets/ExclusionCheck.js"></script>
+
+	<!-- Import unfocus checking -->
+	<script src="./LogUnfocus.js"></script>
+
+	<script src="./RandomTools/Rng.js"></script>
+	<script src="./RandomTools/Shuffle.js"></script>
+	<script src="./Sequences.js"></script>
+	<script src="./FunctionSpec.js"></script>
+	<script src="./GlobalVars.js"></script>
+	<script src="./ObjectSpec.js"></script>
+
+	<!-- Main script block -->
+	<script>
+		PromiseChain();
+	</script>
+</head>
+<body></body>
+</html>
