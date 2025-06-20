@@ -50,9 +50,9 @@ for iSubject = 1:numel(uSubjectId)
             x = [x;floor((numStates-1)/11)];
             c = [c;Ttri.FieldIdx_C(1)];
             v = Ttri.FieldIdx_R;
-            v = unique(v,'stable');
+            [v,iv] = unique(v,'stable');
             r = [r;{v}];
-            rt = [rt;{Ttri.RT}];
+            rt = [rt;{Ttri.RT(iv)}];
         end
     end
 end
