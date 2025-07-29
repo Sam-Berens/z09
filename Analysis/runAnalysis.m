@@ -20,6 +20,16 @@ TaskIO = sortrows(TaskIO,"DateTime_Write","ascend");
 %% Filter
 TaskIO = TaskIO(TaskIO.SubjectId~=categorical({'JonnyTest'}),:);
 
+%% Chance a non-unique IDs
+Temp = TaskIO;
+Temp = Temp(Temp.SubjectId==categorical({'710m5c6l'}),[2,12]);
+Temp = sortrows(Temp,'DateTime_Write');
+D = Temp.DateTime_Write - Temp.DateTime_Write(1);
+Temp.ToChange = Temp.DateTime_Write > (mean(D)+Temp.DateTime_Write(1));
+S = TaskIO.SubjectId==categorical({'710m5c6l'});
+S(S) = Temp.ToChange;
+TaskIO.SubjectId(S) = categorical({'Replaced'});
+
 %%
 uSubjectId = unique(TaskIO.SubjectId);
 SubjectId = [];
